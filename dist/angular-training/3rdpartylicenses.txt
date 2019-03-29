@@ -939,6 +939,9 @@ MIT
 igniteui-angular
 Apache-2.0
 
+@angular/service-worker
+MIT
+
 core-js
 MIT
 Copyright (c) 2014-2019 Denis Pushkarev
