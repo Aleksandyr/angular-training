@@ -15,6 +15,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PoepleListComponent } from './people/poeple-list/poeple-list.component';
 import { InitialsPipe } from './pipes/initials.pipe';
+import { RouterModule } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,7 @@ import { InitialsPipe } from './pipes/initials.pipe';
 ],
 imports: [
     FormsModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRoutingModule,
     IgxNavigationDrawerModule,
@@ -34,6 +37,8 @@ imports: [
     IgxRippleModule,
     IgxCardModule,
     IgxAvatarModule,
+    RouterModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
